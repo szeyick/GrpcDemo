@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-type Interface interface {
+type blah interface {
 	hello () string
 }
 
@@ -16,6 +16,11 @@ func main() {
 	fmt.Println("HELLO WORLD")
 	blah := &Test{}
 	fmt.Println(blah.hello())
+	testFunc(blah)
+}
+
+func testFunc(b blah) {
+	b.hello()
 }
 
 

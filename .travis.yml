@@ -11,7 +11,7 @@ git:
 # Skip the install step. Don't `go get` dependencies. Only build with the code
 # in vendor/
 install:
-  - travis_retry go get -v github.com/stretchr/testify
+  - travis_retry go get github.com/stretchr/testify
 
 # Don't email me the results of the test runs.
 notifications:
