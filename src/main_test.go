@@ -1,26 +1,12 @@
 package main
 
 import (
-	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
-func TestSomething(t *testing.T) {
-	tests := []struct{
-		desc string
-	}{
-		{
-			desc: "this is a test",
-		},
-	}
-
-	for _, tt := range tests {
-		t.Parallel()
-		t.Run(tt.desc, func(t *testing.T) {
-			var blah = &Test{}
-			assert.Equal(t, "hello", blah.hello())
-			testFunc(blah)
-			main()
-		})
+func TestSum(t *testing.T) {
+	total := Sum(5, 5)
+	if total != 10 {
+		t.Errorf("Sum was incorrect, got: %d, want: %d.", total, 10)
 	}
 }
