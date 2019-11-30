@@ -17,9 +17,14 @@ func main() {
 	blah := &Test{}
 	fmt.Println(blah.hello())
 	testFunc(blah)
+	testBunc(blah)
 }
 
 func testFunc(b blah) {
+	b.hello()
+}
+
+func testBunc(b blah) {
 	b.hello()
 }
 
