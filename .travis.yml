@@ -1,5 +1,17 @@
 language: go
 
+addons:
+  sonarcloud:
+    organization: "szeyick-github"
+    token:
+      secure: ad3920a9b432136050cc53fd6b2480127c064aa8
+
+
+cache:
+  directories:
+    - "$HOME/.m2/repository"
+    - "$HOME/.sonar/cache"
+
 # Force-enable Go modules. Also force go to use the code in vendor/
 # These will both be unnecessary when Go 1.14 lands.
 env: GO111MODULE=on
@@ -14,7 +26,7 @@ before_install:
   - export PATH=$HOME/protoc/bin:$PATH
   - go get -u google.golang.org/grpc
   - go get -u github.com/golang/protobuf/protoc-gen-go
-  
+
 # Skip the install step. Don't `go get` dependencies. Only build with the code
 # in vendor/
 install:
@@ -38,5 +50,6 @@ before_script:
 # failing test, we want to see both. Configure golangci-lint with a
 # .golangci.yml file at the top level of your repo.
 script:
+  - sonar-scanner
   - golangci-lint run       # run a bunch of code checkers/linters in parallel
   - go test -v -race ./...  # Run all the tests with the race detector enabled
