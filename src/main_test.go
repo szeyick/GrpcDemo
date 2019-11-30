@@ -19,6 +19,8 @@ func TestSomething(t *testing.T) {
 		t.Run(tt.desc, func(t *testing.T) {
 			var blah = &Test{}
 			assert.Equal(t, "hello", blah.hello())
+			testFunc(blah)
+			main()
 		})
 	}
 }
