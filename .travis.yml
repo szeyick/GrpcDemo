@@ -28,8 +28,8 @@ before_install:
   - go get github.com/golang/mock/mockgen
   - go get github.com/golang/mock/gomock
   - echo $GOPATH
-  - $GOPATH/bin/mockgen
-  - mockgen -source=models/model.go -package=mocks -destination=mocks/mock_model.go
+  - $GOPATH/bin/mockgen -source=models/model.go -package=mocks -destination=mocks/mock_model.go
+  # - mockgen -source=models/model.go -package=mocks -destination=mocks/mock_model.go
 
 # Skip the install step. Don't `go get` dependencies. Only build with the code
 # in vendor/
