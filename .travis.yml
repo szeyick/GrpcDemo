@@ -25,6 +25,7 @@ before_install:
   - export PATH=$HOME/protoc/bin:$PATH
   - go get -u google.golang.org/grpc
   - go get -u github.com/golang/protobuf/protoc-gen-go
+  - go get github.com/golang/mock/mockgen
 
 # Skip the install step. Don't `go get` dependencies. Only build with the code
 # in vendor/
@@ -53,6 +54,7 @@ script:
 #  - golangci-lint run       # run a bunch of code checkers/linters in parallel
 #  - go test -v -race ./...  # Run all the tests with the race detector enabled
    # Execute tests and coverage
+  - mockgen -source=models/model.go -package=mocks -destination=mocks/mock_model.go
   - go test -json -v ./... > report.json
   - go test -coverprofile=coverage.out -v ./...
   # And then execute SonarCloud analysis which will run its own code analysis, and also reuse the linters' results
