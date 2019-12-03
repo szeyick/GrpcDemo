@@ -28,7 +28,7 @@ before_install:
   - go get github.com/golang/mock/mockgen
   - go get github.com/golang/mock/gomock
   - mockgen -source=src/models/model.go -package=mocks -destination=src/mocks/mock_model.go
-  - go get go.uber.org/fx@v1
+  - go get go.uber.org/fx
 
 install:
   - travis_retry go get github.com/stretchr/testify
