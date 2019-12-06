@@ -20,14 +20,14 @@ env: GO111MODULE=on
 #  depth: false
 
 before_install:
-  - curl -L https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip -o /tmp/protoc.zip
-  - unzip /tmp/protoc.zip -d $HOME/protoc
-  - export PATH=$HOME/protoc/bin:$PATH
-  - go get -u google.golang.org/grpc
-  - go get -u github.com/golang/protobuf/protoc-gen-go
+#  - curl -L https://github.com/protocolbuffers/protobuf/releases/download/v3.6.1/protoc-3.6.1-linux-x86_64.zip -o /tmp/protoc.zip
+#  - unzip /tmp/protoc.zip -d $HOME/protoc
+#  - export PATH=$HOME/protoc/bin:$PATH
+#  - go get -u google.golang.org/grpc
+#  - go get -u github.com/golang/protobuf/protoc-gen-go
 #  - go get github.com/golang/mock/mockgen
 #  - go get github.com/golang/mock/gomock
-  - mockgen -source=src/models/model.go -package=mocks -destination=src/mocks/mock_model.go
+#  - mockgen -source=src/models/model.go -package=mocks -destination=src/mocks/mock_model.go
 #  - go get go.uber.org/fx
 
 install:
