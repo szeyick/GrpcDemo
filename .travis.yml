@@ -25,9 +25,9 @@ before_install:
   - export PATH=$HOME/protoc/bin:$PATH
   - go get -u google.golang.org/grpc
   - go get -u github.com/golang/protobuf/protoc-gen-go
-  - go get github.com/golang/mock/mockgen
-  - go get github.com/golang/mock/gomock
-  - mockgen -source=src/models/model.go -package=mocks -destination=src/mocks/mock_model.go
+#  - go get github.com/golang/mock/mockgen
+#  - go get github.com/golang/mock/gomock
+#  - mockgen -source=src/models/model.go -package=mocks -destination=src/mocks/mock_model.go
   - go get go.uber.org/fx
 
 install:
