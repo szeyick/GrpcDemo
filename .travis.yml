@@ -50,12 +50,12 @@ before_script:
 # script always runs to completion (set +e). If we have linter issues AND a
 # failing test, we want to see both. Configure golangci-lint with a
 # .golangci.yml file at the top level of your repo.
-script:
+#script:
 #  - sonar-scanner
 #  - golangci-lint run       # run a bunch of code checkers/linters in parallel
 #  - go test -v -race ./...  # Run all the tests with the race detector enabled
    # Execute tests and coverage
-  - go test -json -v ./... > report.json
-  - go test -coverprofile=coverage.out -v ./...
+#  - go test -json -v ./... > report.json
+#  - go test -coverprofile=coverage.out -v ./...
   # And then execute SonarCloud analysis which will run its own code analysis, and also reuse the linters' results
-  - sonar-scanner
+#  - sonar-scanner
