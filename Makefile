@@ -8,10 +8,7 @@ GO_FILES := $(shell \
 	find . '(' -path '*/.*' -o -path './vendor' ')' -prune \
 	-o -name '*.go' -print | cut -b3-)
 
-all: deps test build
-
-deps:
-	@go get -u -t ./...
+all: test build
 
 .PHONY: build
 build:
@@ -26,11 +23,11 @@ gen-mocks:
 	mockgen -source=src/models/model.go -package=mocks -destination=src/mocks/mock_model.go
 
 .PHONY: test
-test: deps gen-mocks
+test: gen-mocks
 	go test -race ./...
 
 .PHONY: cover
-cover: deps gen-mocks
+cover: gen-mocks
 	go test -race -coverprofile=cover.out -coverpkg=./... ./... 
 	go tool cover -html=cover.out -o cover.html
 
