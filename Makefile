@@ -8,7 +8,10 @@ GO_FILES := $(shell \
 	find . '(' -path '*/.*' -o -path './vendor' ')' -prune \
 	-o -name '*.go' -print | cut -b3-)
 
-all: test build
+all: deps test build
+
+deps:
+	@go get -u -t ./...
 
 .PHONY: build
 build:
@@ -41,3 +44,4 @@ clean:
         fi
 	@rm -f $(BINARY_NAME)
 	@rm -rf ./src/mocks
+	@go clean
