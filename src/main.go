@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"github.com/szeyick/GrpcDemo/src/clients"
+	"github.com/szeyick/GrpcDemo/src/models"
 	"go.uber.org/fx"
 	"log"
 	"time"
@@ -24,6 +25,10 @@ func main() {
 	if err := app.Start(startCtx); err != nil {
 		log.Fatal(err)
 	}
+
+
+	m := &models.Impl{}
+	fmt.Println(m.Bar(5))
 
 	stopCtx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
 	defer cancel()
