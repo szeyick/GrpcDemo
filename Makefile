@@ -26,11 +26,11 @@ gen-mocks:
 	mockgen -source=src/models/model.go -package=mocks -destination=src/mocks/mock_model.go
 
 .PHONY: test
-test: gen-mocks
+test: deps gen-mocks
 	go test -race ./...
 
 .PHONY: cover
-cover: gen-mocks
+cover: deps gen-mocks
 	go test -race -coverprofile=cover.out -coverpkg=./... ./... 
 	go tool cover -html=cover.out -o cover.html
 
