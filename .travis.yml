@@ -31,7 +31,7 @@ before_install:
   - go get go.uber.org/fx
 
 install:
-  - travis_retry go get github.com/stretchr/testify
+#  - travis_retry go get github.com/stretchr/testify
 
 # Don't email me the results of the test runs.
 notifications:
